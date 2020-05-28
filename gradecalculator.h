@@ -1,7 +1,9 @@
 #ifndef GRADECALCULATOR_H
 #define GRADECALCULATOR_H
-
 #include <QMainWindow>
+#include "ui_gradecalculator.h"
+#include <algorithm>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class GradeCalculator; }
@@ -14,6 +16,11 @@ class GradeCalculator : public QMainWindow
 public:
     GradeCalculator(QWidget *parent = nullptr);
     ~GradeCalculator();
+
+    double compute_overall();
+
+private slots:
+        void update_overall();
 
 private:
     Ui::GradeCalculator *ui;
