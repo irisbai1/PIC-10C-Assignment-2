@@ -37,12 +37,21 @@ double GradeCalculator:: compute_overall()
     int mt = std::max(mt1,mt2);
     double grade = 0;
 
-
-    if((ui->sA_radiobutton)->isChecked()) {
-        grade = (((hw1 + hw2 + hw3 + hw4 + hw5 + hw6  + hw7 + hw8)/8.0 * 0.25) + (mt1 * 0.2) + (mt2 *0.2) + (fe * 0.35));
+    if (ui->comboBox->currentText()=="PIC 10B: Intermediate Programming") {
+        if((ui->sA_radiobutton)->isChecked()) {
+            grade = (((hw1 + hw2 + hw3 + hw4 + hw5 + hw6  + hw7 + hw8)/8.0 * 0.25) + (mt1 * 0.2) + (mt2 *0.2) + (fe * 0.35));
+        }
+        else if((ui->sB_radiobutton)->isChecked()) {
+            grade = (((hw1 + hw2 + hw3 + hw4 + hw5 + hw6  + hw7 + hw8)/8.0 * 0.25) + (mt * 0.3) + (fe * 0.44));
+        }
     }
-    else if((ui->sB_radiobutton)->isChecked()) {
-        grade = (((hw1 + hw2 + hw3 + hw4 + hw5 + hw6  + hw7 + hw8)/8.0 * 0.25) + (mt * 0.3) + (fe * 0.44));
+    if (ui->comboBox->currentText()=="PIC 10C: Advanced Programming") {
+        if((ui->sA_radiobutton)->isChecked()) {
+            grade = (((hw1 + hw2)/2.0 * 0.15) + (mt1 * 0.25) + (mt2 *0.35) + (fe * 0.30));
+        }
+        else if((ui->sB_radiobutton)->isChecked()) {
+            grade = (((hw1 + hw2)/2.0 * 0.15) + (mt2 * 0.35) + (fe * 0.50));
+        }
     }
 
     return grade;
